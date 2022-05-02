@@ -19,7 +19,7 @@ QSqlDatabase set_database() {
     database.setPort(5432);
     database.setDatabaseName("course_project");
     database.setUserName("postgres");
-    database.setPassword("vopros");
+    database.setPassword("mega_vopros");
     return database;
 }
 
