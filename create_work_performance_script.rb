@@ -2,11 +2,7 @@
 
 require 'faker'
 require 'active_support/all'
-
-def get_term(object_num, arr)
-  num = "(#{object_num}"
-  arr.select { |x| x[0] == num }.first.reject { |x| Date._parse(x).empty? }[-2..-1]
-end
+require_relative 'lib'
 
 objects_file = File.open('/media/sf_win_lin/building_objects_script.sql', 'r')
 objects = objects_file.readlines.map { |x| x.split(',') }
