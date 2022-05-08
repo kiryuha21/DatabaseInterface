@@ -13,7 +13,8 @@ file.write("INSERT INTO work_performance (id, object_code, responsible_team, wor
 9.times do |i|
   object = rand(1..100_000)
   term = get_term(object, objects)
-  file.write("(#{i + 1}, #{object}, #{rand(1..10)}, '#{Faker::Company.bs}', '#{Faker::Date.between(from: Date.parse(term.first), to: Date.parse(term.second))}', ARRAY [")
+  start = Faker::Date.between(from: Date.parse(term.first), to: Date.parse(term.second) - 1.year)
+  file.write("(#{i + 1}, #{object}, #{rand(1..10)}, '#{Faker::Company.bs}', '#{start}', '#{Faker::Date.between(from: start, to: start + 1.year)}', ARRAY [")
 
   temp_days = []
   7.times { temp_days.push Faker::Date.between(from: Date.today, to: 7.day.from_now).strftime('%A') }
@@ -26,7 +27,8 @@ end
 
 object = rand(1..100_000)
 term = get_term(object, objects)
-file.write("(10, #{object}, #{rand(1..10)}, '#{Faker::Company.bs}', '#{Faker::Date.between(from: Date.parse(term.first), to: Date.parse(term.second))}', ARRAY [")
+start = Faker::Date.between(from: Date.parse(term.first), to: Date.parse(term.second) - 1.year)
+file.write("(10, #{object}, #{rand(1..10)}, '#{Faker::Company.bs}', '#{start}', '#{Faker::Date.between(from: start, to: start + 1.year)}', ARRAY [")
 
 temp_days = []
 7.times { temp_days.push Faker::Date.between(from: Date.today, to: 7.day.from_now).strftime('%A') }
