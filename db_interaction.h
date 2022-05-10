@@ -20,8 +20,8 @@ public:
     void close_database();
 
     QStringList get_tables(QString role);
-    QSqlTableModel* get_editable_table(QObject* obj, QString table_name, int limit, int offset);
-    QSqlQueryModel* get_readonly_table(QString table_name, int limit, int offset);
+    QSqlTableModel* get_editable_model(QObject* obj, QString table_name, int limit, int offset);
+    QSqlQueryModel* get_readonly_model(QString table_name, int limit, int offset);
 
 private:
     QSqlDatabase database;

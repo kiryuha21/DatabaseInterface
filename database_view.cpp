@@ -30,10 +30,12 @@ void database_view::on_db_combo_textActivated(const QString &arg1)
     int limit = ui->records_limit_edit->text().toInt();
 
     if (current_role == roles::manager && (arg1 == "working_stuff" || arg1 == "teams")) {
-        auto model = interaction->get_editable_table(this, arg1, limit, offset);
+        auto model = interaction->get_editable_model(this, arg1, limit, offset);
+        ui->redact_edit->setText("Разрешено");
         ui->table_view->setModel(model);
     } else {
-        auto model = interaction->get_readonly_table(arg1, limit, offset);
+        auto model = interaction->get_readonly_model(arg1, limit, offset);
+        ui->redact_edit->setText("Запрещено");
         ui->table_view->setModel(model);
     }
 }

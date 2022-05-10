@@ -41,15 +41,15 @@ QStringList db_interaction::get_tables(QString role) {
     return result;
 }
 
-QSqlTableModel* db_interaction::get_editable_table(QObject* obj, QString table_name, int limit, int offset) {
+QSqlTableModel* db_interaction::get_editable_model(QObject* obj, QString table_name, int limit, int offset) {
     QSqlTableModel* model = new QSqlTableModel(obj, database);
     model->setTable(table_name);
+    model->setFilter(QString("id > %1 AND id < %2").arg(offset).arg(limit + offset + 1));
     model->select();
-    // сделать через QSqlQuery LIMIT и OFFSET
     return model;
 }
 
-QSqlQueryModel* db_interaction::get_readonly_table(QString table_name, int limit, int offset) {
+QSqlQueryModel* db_interaction::get_readonly_model(QString table_name, int limit, int offset) {
     QSqlQueryModel* model = new QSqlQueryModel;
     model->setQuery(QString("SELECT * FROM %1 LIMIT %2 OFFSET %3").arg(table_name).arg(limit).arg(offset));
     return model;

@@ -37,15 +37,15 @@
   <widget class="QComboBox" name="db_combo">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>120</y>
-     <width>301</width>
-     <height>41</height>
+     <x>350</x>
+     <y>130</y>
+     <width>281</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>9</pointsize>
     </font>
    </property>
    <property name="editable">
@@ -73,7 +73,7 @@
   <widget class="QLineEdit" name="first_number_edit">
    <property name="geometry">
     <rect>
-     <x>231</x>
+     <x>230</x>
      <y>80</y>
      <width>90</width>
      <height>30</height>
@@ -136,6 +136,40 @@
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>130</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Редактирование</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="redact_edit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>130</y>
+     <width>90</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Запрещено</string>
    </property>
   </widget>
  </widget>
