@@ -38,9 +38,3 @@ void database_view::on_db_combo_textActivated(const QString &arg1)
     }
 }
 
-
-void database_view::on_database_view_finished(int result)
-{
-    interaction->close_database();
-}
-
