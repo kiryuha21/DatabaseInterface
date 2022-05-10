@@ -2,9 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QSqlDatabase>
-#include <QSqlTableModel>
-#include <QSqlQuery>
+#include "utils.h"
+#include "database_view.h"
+#include "requests.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,12 +19,14 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_view_button_clicked();
+    void on_worker_button_clicked();
+    void on_manager_button_clicked();
+    void on_requests_button_clicked();
+    void enable_buttons();
 
 private:
     Ui::MainWindow *ui;
-    QSqlDatabase database;
-    QSqlQuery* query;
-    QSqlTableModel* table;
+    roles current_role = roles::no_role;
 };
 #endif // MAINWINDOW_H

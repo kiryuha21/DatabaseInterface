@@ -20,8 +20,19 @@ include_directories("C:/Program Files/PostgreSQL/14")
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
+        database_view.cpp
+        requests.cpp
+        db_interaction.cpp
+
+        database_view.h
         mainwindow.h
+        requests.h
+        utils.h
+        db_interaction.h
+
         mainwindow.ui
+        database_view.ui
+        requests.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
