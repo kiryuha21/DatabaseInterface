@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>648</width>
-    <height>576</height>
+    <height>622</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -52,13 +52,11 @@
     <bool>false</bool>
    </property>
    <property name="currentText">
+    <string/>
+   </property>
+   <property name="placeholderText">
     <string>Выберите таблицу из доступных</string>
    </property>
-   <item>
-    <property name="text">
-     <string>Выберите таблицу из доступных</string>
-    </property>
-   </item>
   </widget>
   <widget class="QTableView" name="table_view">
    <property name="geometry">
@@ -170,6 +168,54 @@
    </property>
    <property name="text">
     <string>Запрещено</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="id_edit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>580</y>
+     <width>113</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>ID</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="delete_button">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>580</y>
+     <width>106</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Удалить по ID</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="add_button">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>502</x>
+     <y>580</y>
+     <width>131</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Добавить Запись</string>
    </property>
   </widget>
  </widget>

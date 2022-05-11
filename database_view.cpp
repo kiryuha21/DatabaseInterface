@@ -23,6 +23,16 @@ database_view::~database_view()
     delete ui;
 }
 
+QPushButton* create_button(QString text, QWidget* parent = nullptr) {
+    QPushButton* button = new QPushButton(text, parent);
+    return button;
+}
+
+QLineEdit* create_edit(QString placeholder, QWidget* parent = nullptr) {
+    QLineEdit* edit = new QLineEdit(parent);
+    edit->setPlaceholderText(placeholder);
+    return edit;
+}
 
 void database_view::on_db_combo_textActivated(const QString &arg1)
 {
@@ -30,13 +40,35 @@ void database_view::on_db_combo_textActivated(const QString &arg1)
     int limit = ui->records_limit_edit->text().toInt();
 
     if (current_role == roles::manager && (arg1 == "working_stuff" || arg1 == "teams")) {
-        auto model = interaction->get_editable_model(this, arg1, limit, offset);
+        model = interaction->get_editable_model(this, arg1, limit, offset);
         ui->redact_edit->setText("Разрешено");
         ui->table_view->setModel(model);
+
+        ui->delete_button->setEnabled(true);
+        ui->id_edit->setEnabled(true);
+        ui->add_button->setEnabled(true);
     } else {
-        auto model = interaction->get_readonly_model(arg1, limit, offset);
+        model = interaction->get_readonly_model(arg1, limit, offset);
         ui->redact_edit->setText("Запрещено");
         ui->table_view->setModel(model);
+
+        ui->delete_button->setEnabled(false);
+        ui->id_edit->setEnabled(false);
+        ui->add_button->setEnabled(false);
     }
+    ui->db_combo->setFocus();
+}
+
+
+void database_view::on_delete_button_clicked()
+{
+    QSqlQuery query(QString("DELETE FROM %1 WHERE id = %2").arg(ui->db_combo->currentText()).arg(ui->id_edit->text()));
+    ui->db_combo->textActivated(ui->db_combo->currentText());
+}
+
+
+void database_view::on_add_button_clicked()
+{
+    model->insertRow(model->rowCount());
 }
 

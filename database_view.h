@@ -21,10 +21,15 @@ public:
 private slots:
     void on_db_combo_textActivated(const QString &arg1);
 
+    void on_delete_button_clicked();
+
+    void on_add_button_clicked();
+
 private:
     Ui::database_view *ui;
     roles current_role;
     db_interaction* interaction;
+    QAbstractItemModel* model;
 };
 
 #endif // DATABASE_VIEW_H
