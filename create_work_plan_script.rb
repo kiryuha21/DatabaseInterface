@@ -6,8 +6,8 @@ BOOLS = %w[TRUE FALSE].freeze
 
 file = File.open('/media/sf_win_lin/work_plan_script.sql', 'w')
 file.write("INSERT INTO work_plan (id, object_code, target, budget, term, done) values\n")
-9.times do |i|
+999.times do |i|
   file.write("(#{i + 1}, #{rand(1..100_000)}, '#{Faker::Company.bs}', #{rand(1_000_000..100_000_000)}, INTERVAL '#{rand(50..400)} days', #{BOOLS.sample}),\n")
 end
-file.write("(10, #{rand(1..100_000)}, '#{Faker::Company.bs}', #{rand(1_000_000..100_000_000)}, INTERVAL '#{rand(50..400)} days', #{BOOLS.sample});\n")
+file.write("(1000, #{rand(1..100_000)}, '#{Faker::Company.bs}', #{rand(1_000_000..100_000_000)}, INTERVAL '#{rand(50..400)} days', #{BOOLS.sample});\n")
 file.close

@@ -10,11 +10,11 @@ objects_file.close
 
 file = File.open('/media/sf_win_lin/work_performance_script.sql', 'w')
 file.write("INSERT INTO work_performance (id, object_code, responsible_team, work_object, start_time, finish_time, working_days) values\n")
-9.times do |i|
+999.times do |i|
   object = rand(1..100_000)
   term = get_term(object, objects)
   start = Faker::Date.between(from: Date.parse(term.first), to: Date.parse(term.second) - 1.year)
-  file.write("(#{i + 1}, #{object}, #{rand(1..10)}, '#{Faker::Company.bs}', '#{start}', '#{Faker::Date.between(from: start, to: start + 1.year)}', ARRAY [")
+  file.write("(#{i + 1}, #{object}, #{rand(1..1000)}, '#{Faker::Company.bs}', '#{start}', '#{Faker::Date.between(from: start, to: start + 1.year)}', ARRAY [")
 
   temp_days = []
   7.times { temp_days.push Faker::Date.between(from: Date.today, to: 7.day.from_now).strftime('%A') }
@@ -28,7 +28,7 @@ end
 object = rand(1..100_000)
 term = get_term(object, objects)
 start = Faker::Date.between(from: Date.parse(term.first), to: Date.parse(term.second) - 1.year)
-file.write("(10, #{object}, #{rand(1..10)}, '#{Faker::Company.bs}', '#{start}', '#{Faker::Date.between(from: start, to: start + 1.year)}', ARRAY [")
+file.write("(1000, #{object}, #{rand(1..1000)}, '#{Faker::Company.bs}', '#{start}', '#{Faker::Date.between(from: start, to: start + 1.year)}', ARRAY [")
 
 temp_days = []
 7.times { temp_days.push Faker::Date.between(from: Date.today, to: 7.day.from_now).strftime('%A') }
