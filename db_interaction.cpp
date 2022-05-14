@@ -41,6 +41,12 @@ QStringList db_interaction::get_tables(QString role) {
     return result;
 }
 
+QSqlQueryModel* db_interaction::get_request_model(int index, int input) {
+    QSqlQueryModel* model = new QSqlQueryModel;
+    model->setQuery(input == -1 ? requests[index] : QString(requests[index].arg(input)));
+    return model;
+}
+
 QSqlTableModel* db_interaction::get_editable_model(QObject* obj, QString table_name, int limit, int offset) {
     QSqlTableModel* model = new QSqlTableModel(obj, database);
     model->setTable(table_name);

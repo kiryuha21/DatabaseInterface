@@ -23,11 +23,27 @@ requests::requests(QWidget *parent, roles role) :
 
 requests::~requests()
 {
+    interaction->close_database();
     delete ui;
 }
 
 void requests::on_combo_request_textActivated(const QString &arg1)
 {
-    ui->describe_browser->setText(descriptions[ui->comboBox->currentIndex()]);
+    int current_index = ui->combo_request->currentIndex();
+    ui->input_edit->setDisabled(interaction->requests_with_input.contains(current_index) ? false : true);
+    ui->describe_browser->setText(descriptions[current_index]);
+}
+
+
+void requests::on_find_button_clicked()
+{
+    if (ui->input_edit->isEnabled()) {
+        ui->tableView->setModel(interaction->get_request_model(ui->combo_request->currentIndex(), ui->input_edit->text().toInt()));
+        ui->input_edit->clear();
+        ui->input_edit->setFocus();
+    } else {
+        ui->tableView->setModel(interaction->get_request_model(ui->combo_request->currentIndex()));
+    }
+    ui->tableView->resizeColumnsToContents();
 }
 

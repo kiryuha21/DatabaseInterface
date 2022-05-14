@@ -23,17 +23,6 @@ database_view::~database_view()
     delete ui;
 }
 
-QPushButton* create_button(QString text, QWidget* parent = nullptr) {
-    QPushButton* button = new QPushButton(text, parent);
-    return button;
-}
-
-QLineEdit* create_edit(QString placeholder, QWidget* parent = nullptr) {
-    QLineEdit* edit = new QLineEdit(parent);
-    edit->setPlaceholderText(placeholder);
-    return edit;
-}
-
 void database_view::on_db_combo_textActivated(const QString &arg1)
 {
     int offset = ui->first_number_edit->text().toInt() - 1;
