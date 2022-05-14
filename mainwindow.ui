@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>140</y>
+      <y>150</y>
       <width>201</width>
       <height>51</height>
      </rect>
@@ -61,7 +61,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>220</y>
+      <y>240</y>
       <width>201</width>
       <height>51</height>
      </rect>
@@ -89,7 +89,7 @@
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>220</y>
+      <y>200</y>
       <width>271</width>
       <height>51</height>
      </rect>
@@ -105,13 +105,29 @@
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>140</y>
+      <y>120</y>
       <width>271</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
      <string>Просмотр/редактирование таблиц</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="reports_button">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>280</y>
+      <width>271</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Просмотр отчетов</string>
     </property>
    </widget>
   </widget>

@@ -23,16 +23,19 @@ set(PROJECT_SOURCES
         database_view.cpp
         requests.cpp
         db_interaction.cpp
+        reports.cpp
 
         database_view.h
         mainwindow.h
         requests.h
         utils.h
         db_interaction.h
+        reports.h
 
         mainwindow.ui
         database_view.ui
         requests.ui
+        reports.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

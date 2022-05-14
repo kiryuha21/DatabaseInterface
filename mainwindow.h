@@ -5,6 +5,7 @@
 #include "utils.h"
 #include "database_view.h"
 #include "requests.h"
+#include "reports.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,7 +24,9 @@ private slots:
     void on_worker_button_clicked();
     void on_manager_button_clicked();
     void on_requests_button_clicked();
-    void enable_buttons();
+    void enable_buttons(roles role);
+
+    void on_reports_button_clicked();
 
 private:
     Ui::MainWindow *ui;

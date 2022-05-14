@@ -47,6 +47,12 @@ QSqlQueryModel* db_interaction::get_request_model(int index, int input) {
     return model;
 }
 
+QSqlQueryModel* db_interaction::get_report_model(int index) {
+    QSqlQueryModel* model = new QSqlQueryModel;
+    model->setQuery(reports[index]);
+    return model;
+}
+
 QSqlTableModel* db_interaction::get_editable_model(QObject* obj, QString table_name, int limit, int offset) {
     QSqlTableModel* model = new QSqlTableModel(obj, database);
     model->setTable(table_name);
