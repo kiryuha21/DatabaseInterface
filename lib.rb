@@ -4,7 +4,7 @@ def get_names
   file.close
   names = []
 
-  (1..10).each do |i|
+  (1..100).each do |i|
     first = arr[i].index("'")
     names.push arr[i][first + 1..arr[i][(first + 1)..].index("'") + 1]
   end
